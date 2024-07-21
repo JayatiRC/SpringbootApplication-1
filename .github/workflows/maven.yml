@@ -29,10 +29,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
-    - name: Build the Maven application
+    - name: Build and test the Maven application
       run: |
         cd springboot-first-app/springboot-first-app
         mvn clean
-        mvn -B package --pom.xml
+        mvn -B test --file pom.xml
 
   
