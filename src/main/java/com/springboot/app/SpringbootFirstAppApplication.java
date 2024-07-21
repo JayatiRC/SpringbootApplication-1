@@ -17,7 +17,7 @@ public class SpringbootFirstAppApplication {
 	@RequestMapping("/")
 	public String printStartupMessage() {
 
-		 return "Wow Apllication is started";
+		 return "Wow Apllication is started.";
 		
 	}
 }	
