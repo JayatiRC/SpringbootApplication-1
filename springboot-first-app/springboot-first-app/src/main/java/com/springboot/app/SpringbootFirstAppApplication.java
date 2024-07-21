@@ -18,7 +18,6 @@ public class SpringbootFirstAppApplication {
 	public String printStartupMessage() {
 
 		 return "Wow Apllication is started";
-		 return "trying to run this application as a container";
-	
+		
 	}
 }	
