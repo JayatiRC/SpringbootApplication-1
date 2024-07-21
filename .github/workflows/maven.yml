@@ -31,7 +31,8 @@ jobs:
     
     - name: Build the Maven application
       run: |
+        cd springboot-first-app/springboot-first-app
         mvn clean
-        mvn -B package --/file springboot-first-app/springboot-first-app/pom.xml
+        mvn -B package --pom.xml
 
   
