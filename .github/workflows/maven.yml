@@ -8,6 +8,7 @@
 
 name: Build and deploy Spring Application
 
+
 on:
   push:
     branches: [ "main" ]
@@ -35,4 +36,25 @@ jobs:
         mvn clean
         mvn -B test --file pom.xml
 
-  
+    - name: Build Docker Image
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        dockerfile: Dockerfile
+        push: false
+        tags: jayarirc/demo_repo:latest
+          
+    - name: login to docker hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_HUB_USER_NAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}  
+        
+    - name: Push Docker Image to docker hub
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        dockerfile: Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKER_HUB_USER_NAME }}/demo_repo:latest
+            
