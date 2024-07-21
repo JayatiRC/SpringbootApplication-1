@@ -32,7 +32,6 @@ jobs:
     
     - name: Build and test the Maven application
       run: |
-        cd springboot-first-app/springboot-first-app
         mvn clean
         mvn -B test --file pom.xml
 
