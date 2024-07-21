@@ -47,7 +47,7 @@ jobs:
         context: .
         dockerfile: Dockerfile
         push: false
-        tags: jayarirc/demo_repo:latest
+        tags: ${{ secrets.DOCKER_HUB_USER_NAME }}/demo_repo:${{ github.sha }}
           
     - name: login to docker hub
       uses: docker/login-action@v1
@@ -61,5 +61,5 @@ jobs:
         context: .
         dockerfile: Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USER_NAME }}/demo_repo:latest
+        tags: ${{ secrets.DOCKER_HUB_USER_NAME }}/demo_repo:${{ github.sha }}
             
