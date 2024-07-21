@@ -37,12 +37,12 @@ jobs:
         mvn -B test --file pom.xml
 
     - name: Build Docker Image
-        uses: actions/build-push-action@v2
-        with:
-          context:
-          dockerfile: Dockerfile
-          push: false
-          tags: ${{secret.DOCKER_HUB_USER_NAME }} /demo_repo:${{git_hash}}
+     uses: actions/build-push-action@v2
+     with:
+        context:
+        dockerfile: Dockerfile
+        push: false
+        tags: ${{secret.DOCKER_HUB_USER_NAME }} /demo_repo:${{git_hash}}
           
     - name: login to docker hub
       uses: docker/login-action@v1
@@ -50,10 +50,10 @@ jobs:
         username: ${{DOCKER_HUB_ACCESS_TOKEN }} 
         password: ${{secret.DOCKER_HUB_USER_NAME }} 
         
-   - name: Push Docker Image to docker hub
-        uses: actions/build-push-action@v2
-        with:
-          context:
-          dockerfile: Dockerfile
-          push: true
-          tags: ${{secret.DOCKER_HUB_USER_NAME }} /demo_repo:${{git_hash}}
+    - name: Push Docker Image to docker hub
+      uses: actions/build-push-action@v2
+      with:
+        context:
+        dockerfile: Dockerfile
+        push: true
+        tags: ${{secret.DOCKER_HUB_USER_NAME }} /demo_repo:${{git_hash}}
