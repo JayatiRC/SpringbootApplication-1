@@ -68,5 +68,5 @@ jobs:
         context: .
         dockerfile: Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USER_NAME }}/demo_repo:${{ env.sha_short }} 
+        tags: ${{ secrets.DOCKER_HUB_USER_NAME }}/demo_repo:latest} 
             
