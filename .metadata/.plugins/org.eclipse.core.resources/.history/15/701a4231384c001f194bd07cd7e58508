@@ -17,7 +17,7 @@ public class SpringbootFirstAppApplication {
 	@RequestMapping("/")
 	public String printStartupMessage() {
 
-		 return "Wow This is my 1st Demo Application. This is running from container";
+		 return "Wow This is my 1st Springboot Application";
 		 
 	
 	}
